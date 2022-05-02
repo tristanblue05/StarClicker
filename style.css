@@ -4,6 +4,12 @@ body {
   text-align: center;
 }
 
+#click-button {
+  background-color: #FF9881;
+  height: 50px;
+  width: 100px;
+}
+
 #inner {
   height: 200px;
   width: 200px;
