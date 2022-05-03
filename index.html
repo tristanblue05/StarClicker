@@ -3,35 +3,46 @@
     <script src="p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
-
   </head>
   <body>
     <h1>Star Clicker</h1>
     <p>Welcome to Star Clicker! Spend your clicks to upgrade your star and win the game.</p>
-    <button id="click-button">Click Me!</button>
-    <br><br>
-    <p>Clicks: <input type="text-box" disabled=""></p>
-    <h3>Upgrades</h3>
-    <p>Star Mass: <input type="text-box" id="mass-box" disabled="">
-      <button id="mass">
-        <span id="mass-price">50</span>
-      </button>
-    </p>
-    <p>Temperature: <input type="text-box" id="temp-box" disabled="">
-      <button id="temp">
-        <span id="temp-price">50</span>
-      </button>
-    </p>
-    <p>Luminosity: <input type="text-box" id="lum-box" disabled="">
-      <button id="lum">
-        <span id="lum-price">50</span>
-      </button>
-    </p>
-    <button id="upgrade" disabled="">Upgrade</button>
+    <div class="interactives">
+      <div class="clicker">
+        <button id="click-button">Click Me!</button>
+        <br>
+        <p>Clicks: <input type="text-box" id="click-box" disabled=""></p>
+      </div>
+      <div class="upgrades">
+        <h3>Upgrades</h3>
+        <p>Click Multiplier: <input type="text-box" id="mult-box" disabled="">
+          <button id="mult-button" disabled="">
+            <span id="mult-price">10</span>
+          </button>
+        </p>
+        <p>Star Mass: <input type="text-box" id="mass-box" disabled="">
+          <button id="mass-button" disabled="">
+            <span id="mass-price">10</span>
+          </button>
+        </p>
+        <p>Temperature: <input type="text-box" id="temp-box" disabled="">
+          <button id="temp-button" disabled="">
+            <span id="temp-price">10</span>
+          </button>
+        </p>
+        <p>Luminosity: <input type="text-box" id="lum-box" disabled="">
+          <button id="lum-button" disabled="">
+            <span id="lum-price">10</span>
+          </button>
+        </p>
+      </div>
+    </div>
     <br><br><br>
-    <span class="dot" id="outer"></span>
-    <span class="dot" id="inner"></span>
-    <script src="sketch.js"></script>
+    <div class="circles">
+      <span class="dot" id="outer"></span>
+      <span class="dot" id="inner"></span>
+      <script src="sketch.js"></script>
+    </div>
   
 
 </body></html>
