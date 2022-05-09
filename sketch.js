@@ -47,7 +47,7 @@ clickButton.onclick = () => {
 // Upgrade Button onClicks
 multButton.onclick = () => {
   clicks -= multPrice
-  multPrice *= 2
+  multPrice *= 4
   mult *= 2
   update()
 }
@@ -70,6 +70,7 @@ lumButton.onclick = () => {
   update()
 }
 
+// Define Update Function
 function update() {
   if (clicks < multPrice) {
     multButton.disabled = true

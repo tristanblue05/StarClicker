@@ -4,6 +4,12 @@ body {
   text-align: center;
 }
 
+#star-class {
+  font-weight: bold;
+  color: #E22CFF;
+  font-size: 25px;
+}
+
 #click-button {
   background-color: #FF9881;
   height: 50px;
