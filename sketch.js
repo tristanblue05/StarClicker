@@ -72,6 +72,8 @@ lumButton.onclick = () => {
 
 // Define Update Function
 function update() {
+  
+  // Button Status Updates
   if (clicks < multPrice) {
     multButton.disabled = true
   }
@@ -96,6 +98,8 @@ function update() {
   else {
     lumButton.disabled = false
   }
+  
+  // Box Values Updates
   clickBox.value = clicks
   
   multBox.value = mult
@@ -103,8 +107,12 @@ function update() {
   tempBox.value = temp
   lumBox.value = lum
   
+  // Button Price Updates
   multPriceSpan.innerHTML = multPrice
   massPriceSpan.innerHTML = massPrice
   tempPriceSpan.innerHTML = tempPrice
   lumPriceSpan.innerHTML = lumPrice
+  
+  // Stellar Classification Updates
+  //if (mass < )
 }
