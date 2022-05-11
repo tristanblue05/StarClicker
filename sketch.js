@@ -11,8 +11,6 @@ const clickButton = document.querySelector("button#click-button")
 const clickBox = document.querySelector("input#click-box")
 
 const multBox = document.querySelector("input#mult-box")
-const multButton = document.querySelector("button#mult-button")
-const multPriceSpan = document.querySelector("span#mult-price")
 
 const massBox = document.querySelector("input#mass-box")
 const massButton = document.querySelector("button#mass-button")
@@ -33,7 +31,6 @@ massBox.value = mass
 tempBox.value = temp
 lumBox.value = lum
 
-let multPrice = multPriceSpan.innerHTML
 let massPrice = massPriceSpan.innerHTML
 let tempPrice = tempPriceSpan.innerHTML
 let lumPrice = lumPriceSpan.innerHTML
@@ -45,12 +42,6 @@ clickButton.onclick = () => {
 }
 
 // Upgrade Button onClicks
-multButton.onclick = () => {
-  clicks -= multPrice
-  multPrice *= 4
-  mult *= 2
-  update()
-}
 massButton.onclick = () => {
   clicks -= massPrice
   massPrice *= 2
@@ -74,12 +65,6 @@ lumButton.onclick = () => {
 function update() {
   
   // Button Status Updates
-  if (clicks < multPrice) {
-    multButton.disabled = true
-  }
-  else {
-    multButton.disabled = false
-  }
   if (clicks < massPrice) {
     massButton.disabled = true
   }
@@ -108,7 +93,6 @@ function update() {
   lumBox.value = lum
   
   // Button Price Updates
-  multPriceSpan.innerHTML = multPrice
   massPriceSpan.innerHTML = massPrice
   tempPriceSpan.innerHTML = tempPrice
   lumPriceSpan.innerHTML = lumPrice
