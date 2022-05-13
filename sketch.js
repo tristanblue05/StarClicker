@@ -6,6 +6,12 @@ let mass = 0
 let temp = 0
 let lum = 0
 
+let massthresh = 0.10
+let tempthresh = 2000
+let lumthresh = 10
+
+const classes = ["Nebula", "Protostar", "Main Sequence Star", "Massive Star", "Supergiant", "Final"]
+
 // HTML Query Selectors
 const clickButton = document.querySelector("button#click-button")
 const clickBox = document.querySelector("input#click-box")
@@ -24,8 +30,12 @@ const lumBox = document.querySelector("input#lum-box")
 const lumButton = document.querySelector("button#lum-button")
 const lumPriceSpan = document.querySelector("span#lum-price")
 
+const starButton = document.querySelector("button#star-button")
+const starPriceSpan = document.querySelector("span#star-price")
+
 // HTML Interactives
 clickBox.value = clicks
+
 multBox.value = mult
 massBox.value = mass
 tempBox.value = temp
@@ -34,6 +44,8 @@ lumBox.value = lum
 let massPrice = massPriceSpan.innerHTML
 let tempPrice = tempPriceSpan.innerHTML
 let lumPrice = lumPriceSpan.innerHTML
+
+let starPrice = starPriceSpan.innerHTML
 
 // Click Button onClick
 clickButton.onclick = () => {
@@ -61,6 +73,14 @@ lumButton.onclick = () => {
   update()
 }
 
+// Star Button onClick
+starButton.onclick = () => {
+  clicks -= starPrice
+  starPrice *= 2
+  levelUp()
+  update()
+}
+
 // Define Update Function
 function update() {
   
@@ -83,6 +103,12 @@ function update() {
   else {
     lumButton.disabled = false
   }
+  if (mass < massthresh || temp < tempthresh || lum < lumthresh || clicks < starPrice) {
+    starButton.disabled = true
+  }
+  else {
+    starButton.disabled = false
+  }
   
   // Box Values Updates
   clickBox.value = clicks
@@ -96,7 +122,11 @@ function update() {
   massPriceSpan.innerHTML = massPrice
   tempPriceSpan.innerHTML = tempPrice
   lumPriceSpan.innerHTML = lumPrice
+ 
+  starPriceSpan.innerHTML = starPrice
+}
+
+// Define Level Up Function
+function levelUp() {
   
-  // Stellar Classification Updates
-  //if (mass < )
 }
