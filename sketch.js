@@ -1,4 +1,6 @@
 // Variables
+let currentLevel = 0
+
 let clicks = 0
 
 let mult = 1
@@ -10,7 +12,20 @@ let massthresh = 0.10
 let tempthresh = 2000
 let lumthresh = 10
 
-const classes = ["Nebula", "Protostar", "Main Sequence Star", "Massive Star", "Supergiant", "Final"]
+const classes = [
+  {
+    name: 'protostar',
+    threshs: {
+      mass: 0.5,
+      temp: 20000,
+      lum: 40
+    },
+    mult: 2
+  },
+  {
+    name: 's'
+  }
+]
 
 // HTML Query Selectors
 const clickButton = document.querySelector("button#click-button")
@@ -128,5 +143,6 @@ function update() {
 
 // Define Level Up Function
 function levelUp() {
-  
+  currentLevel ++
+  mult = 
 }
