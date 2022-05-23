@@ -15,19 +15,3 @@ body {
   height: 50px;
   width: 100px;
 }
-
-#inner {
-  height: 200px;
-  width: 200px;
-  background-color: yellow;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-#outer {
-  height: 100px;
-  width: 200px;
-  background-color: red;
-  border-radius: 50%;
-  display: inline-block;
-}

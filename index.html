@@ -36,23 +36,31 @@
             <span id="lum-price">10</span>
           </button>
         </p>
-        <p>
-          <button id="star-button" disabled="">Level Up</button>
-          your star for  
-          <span id="star-price">100</span>
-        </p>
+        <div id="star-upgrade">
+          <p>
+            <button id="star-button" disabled="">Level Up</button>
+            your star for  
+            <span id="star-price">100</span>
+            clicks, 
+            <span id="mass-thresh">0.01</span>
+            S masses, 
+            <span id="temp-thresh">2000</span>
+            kelvin, and  
+            <span id="lum-thresh">1</span>
+            S lumens.
+          </p>
+        </div>
       </div>
+    </div>
+    <div id="final-message">
+      <p>
+      </p>
     </div>
     <p>You are a: 
       <span id="star-class">Nebula</span>
     </p>
-    <img src="nebula.jpg" alt="Nebula Image">
-    <div class="circles">
-      <br><br><br>
-      <span class="dot" id="outer"></span>
-      <span class="dot" id="inner"></span>
-      <script src="sketch.js"></script>
-    </div>
+    <img src="nebula.jpg" alt="Class Image" id="class-image">
+    <script src="sketch.js"></script>
   
 
 </body></html>

@@ -1,30 +1,58 @@
 // Variables
 let currentLevel = 0
 
-let clicks = 0
+let clicks = 150000
 
 let mult = 1
-let mass = 0
-let temp = 0
-let lum = 0
-
-let massthresh = 0.10
-let tempthresh = 2000
-let lumthresh = 10
+let mass = 0.002
+let temp = 1000
+let lum = 0.25
 
 const classes = [
   {
-    name: 'protostar',
-    threshs: {
-      mass: 0.5,
-      temp: 20000,
-      lum: 40
+    name: 'Protostar',
+    imagesrc: 'protostar.jpg',
+    threshes: {
+      mass: 0.1,
+      temp: 3000,
+      lum: 15
     },
-    mult: 2
+    mult: 2,
+    color: '#EF2A08'
   },
   {
-    name: 's'
-  }
+    name: 'Main Sequence Star',
+    imagesrc: 'mainsequence.jpg',
+    threshes: {
+      mass: 4,
+      temp: 3500,
+      lum: 50
+    },
+    mult: 5,
+    color: '#FFFF84 '
+  },
+  {
+    name: 'Red Giant',
+    imagesrc: 'redgiant.jpg',
+    threshes: {
+      mass: 4.5,
+      temp: 4000,
+      lum: 75
+    },
+    mult: 15,
+    color: '#D40B0B'
+  },
+  {
+    name: 'White Dwarf',
+    imagesrc: 'whitedwarf.jpg',
+    threshes: {
+      mass: 256,
+      temp: 16384,
+      lum: 256
+    },
+    mult: 40,
+    color: '#C2FFF7'
+  },
 ]
 
 // HTML Query Selectors
@@ -45,10 +73,17 @@ const lumBox = document.querySelector("input#lum-box")
 const lumButton = document.querySelector("button#lum-button")
 const lumPriceSpan = document.querySelector("span#lum-price")
 
+const starupgrade = document.getElementById("star-upgrade")
 const starButton = document.querySelector("button#star-button")
 const starPriceSpan = document.querySelector("span#star-price")
+const massThreshSpan = document.querySelector("span#mass-thresh")
+const tempThreshSpan = document.querySelector("span#temp-thresh")
+const lumThreshSpan = document.querySelector("span#lum-thresh")
+const starClassSpan = document.querySelector("span#star-class")
 
-// HTML Interactives
+const finalMessage = document.querySelector("span#final-message")
+
+// HTML Interactives Initialization 
 clickBox.value = clicks
 
 multBox.value = mult
@@ -61,6 +96,9 @@ let tempPrice = tempPriceSpan.innerHTML
 let lumPrice = lumPriceSpan.innerHTML
 
 let starPrice = starPriceSpan.innerHTML
+let massthresh = massThreshSpan.innerHTML
+let tempthresh = tempThreshSpan.innerHTML
+let lumthresh = lumThreshSpan.innerHTML
 
 // Click Button onClick
 clickButton.onclick = () => {
@@ -72,26 +110,26 @@ clickButton.onclick = () => {
 massButton.onclick = () => {
   clicks -= massPrice
   massPrice *= 2
-  mass += 1000
+  mass *= 5
   update()
 }
 tempButton.onclick = () => {
   clicks -= tempPrice
   tempPrice *= 2
-  temp += 1000
+  temp += 500
   update()
 }
 lumButton.onclick = () => {
   clicks -= lumPrice
   lumPrice *= 2
-  lum += 1000
+  lum *= 4
   update()
 }
 
 // Star Button onClick
 starButton.onclick = () => {
   clicks -= starPrice
-  starPrice *= 2
+  starPrice = Math.floor(2.2 * starPrice)
   levelUp()
   update()
 }
@@ -143,6 +181,29 @@ function update() {
 
 // Define Level Up Function
 function levelUp() {
+  
+  // Variable Updates
+  name = classes[currentLevel].name
+  massthresh = classes[currentLevel].threshes.mass
+  tempthresh = classes[currentLevel].threshes.temp
+  lumthresh = classes[currentLevel].threshes.lum
+  mult = classes[currentLevel].mult
+  color = classes[currentLevel].color
+  
+  // Span Updates
+  if (name != 'White Dwarf') {
+    massThreshSpan.innerHTML = massthresh
+    tempThreshSpan.innerHTML = tempthresh
+    lumThreshSpan.innerHTML = lumthresh
+    starClassSpan.innerHTML = name
+    document.getElementById("class-image").src=classes[currentLevel].imagesrc
+  }
+  else {
+    starupgrade.parentNode.removeChild(starupgrade);
+    finalMessage.innerHTML = "You Win!"; 
+  }
+  
+  // Other Updates
   currentLevel ++
-  mult = 
+  starClassSpan.style.color = color
 }
