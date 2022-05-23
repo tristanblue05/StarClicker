@@ -10,6 +10,12 @@ body {
   font-size: 25px;
 }
 
+#final-message {
+  font-weight: bold;
+  color: #00B70E;
+  font-size: 35px;
+}
+
 #click-button {
   background-color: #FF9881;
   height: 50px;

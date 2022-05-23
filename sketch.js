@@ -1,7 +1,7 @@
 // Variables
 let currentLevel = 0
 
-let clicks = 150000
+let clicks = 0
 
 let mult = 1
 let mass = 0.002
@@ -191,14 +191,12 @@ function levelUp() {
   color = classes[currentLevel].color
   
   // Span Updates
-  if (name != 'White Dwarf') {
-    massThreshSpan.innerHTML = massthresh
-    tempThreshSpan.innerHTML = tempthresh
-    lumThreshSpan.innerHTML = lumthresh
-    starClassSpan.innerHTML = name
-    document.getElementById("class-image").src=classes[currentLevel].imagesrc
-  }
-  else {
+  massThreshSpan.innerHTML = massthresh
+  tempThreshSpan.innerHTML = tempthresh
+  lumThreshSpan.innerHTML = lumthresh
+  starClassSpan.innerHTML = name
+  document.getElementById("class-image").src=classes[currentLevel].imagesrc
+  if (name == 'White Dwarf') {
     starupgrade.parentNode.removeChild(starupgrade);
     finalMessage.innerHTML = "You Win!"; 
   }
